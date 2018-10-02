@@ -24,9 +24,8 @@ def compare_num(search_num, user_num):
     '''
     bulls, cows = [0,0]
     for num in user_num:
-        if num in search_num:
-            for i in range(4):
-                for j in range(4):
+            for i in range(len(search_num)):
+                for j in range(len(user_num)):
                         #kdyz se indexy a hodnoty na indexech rovnaji pricti k bulls +1
                     if (i == j) and (search_num[i] == user_num[j]):
                         bulls += 1
@@ -34,8 +33,6 @@ def compare_num(search_num, user_num):
                         cows += 1
                     else:
                         break
-        else:
-            break
     return bulls, cows
 
 print("Hi there!\nI've generated a random 4 digit number for you.\nLet's play a bulls and cows game.")
