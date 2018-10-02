@@ -36,7 +36,8 @@ while 1:
 
     except (ValueError, ZeroDivisionError): #je to TUPLE
         print('Blbost')
-        raise # vyvola vyjimku, kterou odchytil
+        raise ValueError('Nepujde to.')
+        # vyvola vyjimku, kterou odchytil, nebo kdyz tam napisu jmeno chyby tak to vyvola tu chybu
 
     else: # kdyz se provede try v pohode tak proved toto
         print('Výsledek je: ', vysledek)
