@@ -1,0 +1,76 @@
+# 1 /First of all, the computer will generate a 4-digit secret number. The digits must be all different.
+# 2/ Then, in turn, the user tries to guess their computer's number. The computer prompts the user for a number
+# and after the input has been received, the computer responds with the number of matching digits.
+# 3/ If the matching digits are in their right positions, they are "bulls", if in different positions, they are "cows".
+
+import random
+
+def generate_4num():
+    '''
+    generate random number (4 length) to the list with different numbers (0 - 9)
+    '''
+    four_num = []
+    while len(four_num) < 4:
+        num = random.randint(0,9)
+        if num not in four_num:
+            four_num.append(num)
+    return (four_num)
+
+def compare_num(search_num, user_num):
+    '''
+    compare two number with with same length
+    search_num = searching number
+    user_num = input from user
+    '''
+    bulls, cows = [0,0]
+    for num in user_num:
+        if num in search_num:
+            for i in range(4):
+                for j in range(4):
+                        #kdyz se indexy a hodnoty na indexech rovnaji pricti k bulls +1
+                    if (i == j) and (search_num[i] == user_num[j]):
+                        bulls += 1
+                    elif (i == j) and (search_num[i] != user_num[j]):
+                        cows += 1
+                    else:
+                        break
+        else:
+            break
+    return bulls, cows
+
+print("Hi there!\nI've generated a random 4 digit number for you.\nLet's play a bulls and cows game.")
+# generate searching number
+search_num = generate_4num()
+print(search_num)
+#transfer string input to list with int - map(function, iterables)
+user_number = list(map(int, input('Enter a number: ')))
+print(user_number)
+result = compare_num(search_num, user_number)
+print(f'BULLS {result[0]} and COWS {result[1]}')
+
+
+
+
+
+
+
+# results = list(map(int, results))
+
+# x = list(str(1235443545548484355435434455))
+# print(x)
+
+# import random
+#
+# def compare_numbers(number, user_guess):
+#     cowbull = [0,0] #cows, then bulls
+#     for i in range(len(number)):
+#         if number[i] == user_guess[i]:
+#             cowbull[1]+=1
+#         else:
+#             cowbull[0]+=1
+#     return cowbull
+#
+# if __name__=="__main__":
+#     playing = True #gotta play the game
+#     number = str(random.randint(0,9999)) #random 4 digit number
+#     guesses = 0

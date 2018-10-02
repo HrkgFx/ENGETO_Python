@@ -1,0 +1,5 @@
+Your task is to implement a function, that will perform credit card 
+number validation based on so called Luhn test.
+
+The Luhn test is used by some credit card companies to distinguish valid credit card numbers 
+from what could be a random selection of digits.
