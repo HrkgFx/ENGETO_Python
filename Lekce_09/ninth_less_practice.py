@@ -17,6 +17,9 @@ if 1 < 2:
 vstup = input ('Zadej cislo: ')
 #zkus vykonat kod co mas u sebe
 try:
-    cislo = int(vstup)
-except:
+    cislo = int(vstup) # kde vznikla chyba rovno skace na except
+    vysledek = 100 / cislo    
+except ValueError:
     print('Nezadal jsi cislo.')
+except ZeroDivisionError:
+    print('Nelze delit nulou.')
