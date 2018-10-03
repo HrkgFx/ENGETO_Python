@@ -43,6 +43,7 @@ print("Hi there!\nI've generated a random 4 digit number for you.\nLet's play a 
 gen_num = generate_4num()
 print('Generated number is:',gen_num)
 
+line = 66 * '-'
 result = [0,0]
 attempts = 0
 while result[0] != 4:
@@ -51,21 +52,34 @@ while result[0] != 4:
         user_number = list(map(int, input('Enter a 4 digits number with different numbers: ')))
         attempts += 1
         if len(user_number) != len(gen_num):
+            print(line)
             print("Your entered number didn't has 4 digits. Try again.")
-
+            print(line)
         elif len(user_number) == len(set(user_number)):
             result = compare_num(gen_num, user_number)
             print(f'BULLS {result[0]} and COWS {result[1]}')
+            print(line)
         else:
+            print(line)
             print('You are enter number which contain same digits. Try it again.')
+            print(line)
     except ValueError:
+        print(line)
         print("You didn't enter number. Try it again.")
+        print(line)
+if attempts <= 7:
+    score = 'Amazing'
+elif attempts <= 12:
+    score = 'Good'
+elif attempts <= 15:
+    score = 'Average'
+elif attempts <= 20:
+    score = 'Not so good'
 
 look_num = ''.join(str(i) for i in gen_num)
-print(f"Correct, you've guessed number {look_num} in {attempts} guesses!")
+print(f"{score}, you've guessed number {look_num} in {attempts} guesses!")
 
-
-
+# variable_name = expression1 if condition else expression2
 
 # results = list(map(int, results))
 
