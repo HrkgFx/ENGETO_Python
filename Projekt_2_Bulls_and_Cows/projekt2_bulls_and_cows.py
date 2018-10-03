@@ -16,33 +16,33 @@ def generate_4num():
             four_num.append(num)
     return (four_num)
 
-def compare_num(search_num, user_num):
+def compare_num(gen_num, user_num):
     '''
     compare two number with with same length
-    search_num = searching number
+    gen_num = searching number
     user_num = input from user
     '''
     bulls, cows = [0,0]
-    for num in user_num:
-            for i in range(len(search_num)):
-                for j in range(len(user_num)):
-                        #kdyz se indexy a hodnoty na indexech rovnaji pricti k bulls +1
-                    if (i == j) and (search_num[i] == user_num[j]):
-                        bulls += 1
-                    elif (i == j) and (search_num[i] != user_num[j]):
-                        cows += 1
-                    else:
-                        break
+    for i in range(len(gen_num)):
+        for j in range(len(user_num)):
+                #kdyz se indexy a hodnoty na indexech rovnaji pricti k bulls +1
+            if (i == j) and (gen_num[i] == user_num[j]):
+                bulls += 1
+                #kdyz se indexy nerovnaji a hodnoty rovnaji pricti k bulls +1
+            elif (i != j) and (gen_num[i] == user_num[j]):
+                cows += 1
+            else:
+                pass
     return bulls, cows
 
 print("Hi there!\nI've generated a random 4 digit number for you.\nLet's play a bulls and cows game.")
 # generate searching number
-search_num = generate_4num()
-print(search_num)
+gen_num = generate_4num()
+print(gen_num)
 #transfer string input to list with int - map(function, iterables)
 user_number = list(map(int, input('Enter a number: ')))
 print(user_number)
-result = compare_num(search_num, user_number)
+result = compare_num(gen_num, user_number)
 print(f'BULLS {result[0]} and COWS {result[1]}')
 
 
