@@ -16,6 +16,7 @@ def generate_4num():
             four_num.append(num)
     return (four_num)
 
+
 def compare_num(gen_num, user_num):
     '''
     compare two number with with same length
@@ -35,18 +36,33 @@ def compare_num(gen_num, user_num):
                 pass
     return bulls, cows
 
+
 print("Hi there!\nI've generated a random 4 digit number for you.\nLet's play a bulls and cows game.")
+
 # generate searching number
 gen_num = generate_4num()
-print(gen_num)
-#transfer string input to list with int - map(function, iterables)
-user_number = list(map(int, input('Enter a number: ')))
-print(user_number)
-result = compare_num(gen_num, user_number)
-print(f'BULLS {result[0]} and COWS {result[1]}')
+print('Generated number is:',gen_num)
 
+result = [0,0]
+attempts = 0
+while result[0] != 4:
+    #transfer string input to list with int - map(function, iterables)
+    try:
+        user_number = list(map(int, input('Enter a 4 digits number with different numbers: ')))
+        attempts += 1
+        if len(user_number) != len(gen_num):
+            print("Your entered number didn't has 4 digits. Try again.")
 
+        elif len(user_number) == len(set(user_number)):
+            result = compare_num(gen_num, user_number)
+            print(f'BULLS {result[0]} and COWS {result[1]}')
+        else:
+            print('You are enter number which contain same digits. Try it again.')
+    except ValueError:
+        print("You didn't enter number. Try it again.")
 
+look_num = ''.join(str(i) for i in gen_num)
+print(f"Correct, you've guessed number {look_num} in {attempts} guesses!")
 
 
 
