@@ -7,19 +7,20 @@ result_line = [line.strip('\n') for line in result_line]
 to_list = [item.split(', ') for item in result_line]
 print(to_list)
 
-# num_int = [list(map(int, x)) for x in to_list[1:][1]]
-# print(num_int)
-
-# num_test = [x for x in to_list[1:][1]]
+top_score = []
+#transform str to int on index 1 on attempts
 for x in to_list[1:]:
-    print(x)
-    # x = [int(i) for i in x[1]]
-    x[1] = list(map(int, x[1]))
+    x[1] = int(x[1])
     print(x[1])
-# best_attempts = []
 
-# for i in to_list[1:]:
-#     print(i)
-#     for j in i[1]:
-#         num_int = list(map(int, j)
-#         print(num_int)
+print(to_list)
+print(50*'*')
+
+top_score = []
+for i in to_list[1:]:
+    print(i)
+#     if top_score == []:
+#         top_score.append[i]
+#     else:
+#         if i[1] <= top_score[0][1]:
+#             top_score.append[i]
