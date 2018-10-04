@@ -5,6 +5,7 @@
 
 import random
 import time
+import os.path
 
 def generate_4num():
     '''
@@ -38,16 +39,22 @@ def compare_num(gen_num, user_num):
     return bulls, cows
 
 
-print("Hi there!\nI've generated a random 4 digit number for you.\nLet's play a bulls and cows game.")
-
+print("Hi there!\nI've generated a random 4 different digit number for you.\nLet's play a Bulls and Cows game.")
+name = input('Enter your name: ')
 # generate searching number
 gen_num = generate_4num()
-print('Generated number is:',gen_num)
+# print('Generated number is:',gen_num)
 
 line = 66 * '-'
 result = [0,0]
 attempts = 0
 
+# create file with header if file not exists
+if not os.path.exists('all_results.txt'):
+    with open('all_results.txt', mode = 'a') as tab_header:
+        table = tab_header.write(f'Name, Number of attempts, Searching time\n')
+
+# start counting time
 start = time.time()
 while result[0] != 4:
     #transfer string input to list with int - map(function, iterables)
@@ -70,13 +77,16 @@ while result[0] != 4:
         print(line)
         print("You didn't enter number. Try it again.")
         print(line)
-if attempts <= 7:
+
+if attempts = 1:
+    score = 'You are GOD of all Cow and Bulls'
+elif attempts <= 10:
     score = 'Amazing'
-elif attempts <= 12:
-    score = 'Good'
 elif attempts <= 15:
-    score = 'Average'
+    score = 'Good'
 elif attempts <= 20:
+    score = 'Average'
+elif attempts > 20:
     score = 'Not so good'
 
 look_num = ''.join(str(i) for i in gen_num)
@@ -84,8 +94,7 @@ elapsed_time = time.time() - start
 r_time = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
 
 with open('all_results.txt', mode = 'a') as ap_f:
-    complete_results = ap_f.write(f'Number of attempts: {attempts}, Searching time: {r_time}\n')
-
+    complete_results = ap_f.write(f'{name}, {attempts}, {r_time}\n')
 
 print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
 
