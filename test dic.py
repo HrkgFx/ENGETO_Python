@@ -15,7 +15,16 @@
 
 # print(round(233.03, -2)) #zaokrouhluje na desitky, -1 na stovky, pokud pridam rad, tak dle radu
 
-city = input('What city do you live in? ')
-size = int(input('How many people live in your city? '))
-how = 'big' if size > 1000 else 'small'
-print('If there are %d people living in %s, the it is %s city' %(size,city,how))
+# city = input('What city do you live in? ')
+# size = int(input('How many people live in your city? '))
+# how = 'big' if size > 1000 else 'small'
+# print('If there are %d people living in %s, the it is %s city' %(size,city,how))
+
+hodinova_mzda = 250
+hodin_v_praci = 10
+
+dnesny_vydelek = hodinova_mzda * hodin_v_praci
+print('Vyborne, dnes je tvoj vydelek: ', dnesny_vydelek)
+
+print("Na nakupu dojde ", hodinova_mzda, " a zaplati ", dnesny_vydelek)
+print(int('56.6'))

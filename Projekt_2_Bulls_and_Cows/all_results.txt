@@ -1,0 +1,2 @@
+Number of attempts: 5, Searching time: 00:00:15
+Number of attempts: 2, Searching time: 00:00:12

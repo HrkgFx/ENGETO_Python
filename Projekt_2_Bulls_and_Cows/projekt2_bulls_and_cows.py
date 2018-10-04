@@ -4,6 +4,7 @@
 # 3/ If the matching digits are in their right positions, they are "bulls", if in different positions, they are "cows".
 
 import random
+import time
 
 def generate_4num():
     '''
@@ -46,6 +47,8 @@ print('Generated number is:',gen_num)
 line = 66 * '-'
 result = [0,0]
 attempts = 0
+
+start = time.time()
 while result[0] != 4:
     #transfer string input to list with int - map(function, iterables)
     try:
@@ -77,7 +80,16 @@ elif attempts <= 20:
     score = 'Not so good'
 
 look_num = ''.join(str(i) for i in gen_num)
-print(f"{score}, you've guessed number {look_num} in {attempts} guesses!")
+elapsed_time = time.time() - start
+r_time = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
+
+with open('all_results.txt', mode = 'a') as ap_f:
+    complete_results = ap_f.write(f'Number of attempts: {attempts}, Searching time: {r_time}\n')
+
+
+print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
+
+
 
 # variable_name = expression1 if condition else expression2
 
