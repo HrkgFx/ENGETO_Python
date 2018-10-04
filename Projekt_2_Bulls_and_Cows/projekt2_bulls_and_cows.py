@@ -6,6 +6,7 @@
 import random
 import time
 import os.path
+from operator import itemgetter
 
 def generate_4num():
     '''
@@ -89,7 +90,7 @@ elif attempts <= 20:
 elif attempts > 20:
     score = 'Not so good'
 
-#concentate list numbers to string numbers
+#merged list numbers to string numbers
 look_num = ''.join(str(i) for i in gen_num)
 elapsed_time = time.time() - start
 # transform to time hours:minutes:seconds
@@ -100,9 +101,33 @@ with open('all_results.txt', mode = 'a') as ap_f:
 
 print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
 
+
+# result parts
 with open('all_results.txt') as rs:
     result_line = rs.readlines()
-    print(result_line)
+
+# remove next line \n
+result_line = [line.strip('\n') for line in result_line]
+# print(result_line)
+
+# convert to list from file - row is one item in list
+to_list = [item.split(', ') for item in result_line]
+# print(to_list)
+
+# transform str to int on index 1 on attempts
+for x in to_list[1:]:
+    x[1] = int(x[1])
+    print(x[1])
+
+#sort list by first index - attempts
+top_score = sorted(to_list[1:], key=itemgetter(1))
+#sort list by second index - time
+top_time = sorted(to_list[1:], key=itemgetter(2))
+
+
+
+
+
 
 # variable_name = expression1 if condition else expression2
 

@@ -4,7 +4,7 @@ with open('all_results.txt') as rs:
     result_line = rs.readlines()
 
 result_line = [line.strip('\n') for line in result_line]
-# print(result_line)
+print(result_line)
 
 to_list = [item.split(', ') for item in result_line]
 print(to_list)
@@ -18,7 +18,9 @@ print(to_list)
 print(50*'*')
 
 top_time = sorted(to_list[1:], key=itemgetter(2))
+print('TT',top_time)
 top_score = sorted(to_list[1:], key=itemgetter(1))
+print('TS',top_score)
 
 print(top_time)
 print(50*'*')
