@@ -7,7 +7,6 @@ result_line = [line.strip('\n') for line in result_line]
 to_list = [item.split(', ') for item in result_line]
 print(to_list)
 
-top_score = []
 #transform str to int on index 1 on attempts
 for x in to_list[1:]:
     x[1] = int(x[1])
