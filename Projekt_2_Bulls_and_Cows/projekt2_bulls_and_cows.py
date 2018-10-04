@@ -37,7 +37,7 @@ def compare_num(gen_num, user_num):
             else:
                 pass
     return bulls, cows
-
+    
 
 print("Hi there!\nI've generated a random 4 different digit number for you.\nLet's play a Bulls and Cows game.")
 name = input('Enter your name: ')
@@ -98,7 +98,9 @@ with open('all_results.txt', mode = 'a') as ap_f:
 
 print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
 
-
+with open('all_results.txt') as rs:
+    result_line = rs.readlines()
+    print(result_line)
 
 # variable_name = expression1 if condition else expression2
 
