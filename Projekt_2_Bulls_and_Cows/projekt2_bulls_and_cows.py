@@ -37,7 +37,7 @@ def compare_num(gen_num, user_num):
             else:
                 pass
     return bulls, cows
-    
+
 
 print("Hi there!\nI've generated a random 4 different digit number for you.\nLet's play a Bulls and Cows game.")
 name = input('Enter your name: ')
@@ -89,8 +89,10 @@ elif attempts <= 20:
 elif attempts > 20:
     score = 'Not so good'
 
+#concentate list numbers to string numbers
 look_num = ''.join(str(i) for i in gen_num)
 elapsed_time = time.time() - start
+# transform to time hours:minutes:seconds
 r_time = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
 
 with open('all_results.txt', mode = 'a') as ap_f:
