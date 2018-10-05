@@ -2,6 +2,11 @@
 # 2/ Then, in turn, the user tries to guess their computer's number. The computer prompts the user for a number
 # and after the input has been received, the computer responds with the number of matching digits.
 # 3/ If the matching digits are in their right positions, they are "bulls", if in different positions, they are "cows".
+# Bonus
+# Extend the functionality of the program as you wish. For example
+# Counting time it took to guess the number
+# Count the number of guesses and store them in a file and at the end depict user's stats (the best player etc.)
+
 
 import random
 import time
@@ -111,6 +116,9 @@ while not play_game:
     ############# result parts #############
     #print row in all_results.txt
     def row_table (top_score):
+        '''
+        Generate table from nested list with 3 items in list
+        '''
         for index,value in enumerate(top_score):
             if index < 10:
                 print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
