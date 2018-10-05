@@ -53,7 +53,7 @@ attempts = 0
 # create file with header if file not exists
 if not os.path.exists('all_results.txt'):
     with open('all_results.txt', mode = 'a') as tab_header:
-        table = tab_header.write(f'Name, Number of attempts, Searching time\n')
+        table = tab_header.write(f'Name, Attempts, Searching time\n')
 
 # start counting time
 start = time.time()
@@ -102,7 +102,7 @@ with open('all_results.txt', mode = 'a') as ap_f:
 print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
 
 
-# result parts
+############# result parts #############
 with open('all_results.txt') as rs:
     result_line = rs.readlines()
 
@@ -124,7 +124,8 @@ top_score = sorted(to_list[1:], key=itemgetter(1))
 #sort list by second index - time
 top_time = sorted(to_list[1:], key=itemgetter(2))
 
-
+for i in top_score:
+    print(i)
 
 
 

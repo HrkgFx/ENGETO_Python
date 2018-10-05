@@ -1,4 +1,4 @@
-Name, Number of attempts, Searching time
+Name, Attempts, Searching time
 p, 22, 00:08:44
 p2, 6, 00:03:17
 p3, 7, 00:01:34
