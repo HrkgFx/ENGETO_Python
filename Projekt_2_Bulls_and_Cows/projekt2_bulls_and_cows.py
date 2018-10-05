@@ -49,7 +49,7 @@ while not play_game:
     name = input('Enter your name: ')
     # generate searching number
     gen_num = generate_4num()
-    print('Generated number is:',gen_num)
+    # print('Generated number is:',gen_num)
 
     result = [0,0]
     attempts = 0
