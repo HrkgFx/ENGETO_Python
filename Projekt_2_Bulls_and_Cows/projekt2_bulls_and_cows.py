@@ -42,13 +42,15 @@ def compare_num(gen_num, user_num):
 
 play_game = False
 while not play_game:
-    print("Hi there!\nI've generated a random 4 different digit number for you.\nLet's play a Bulls and Cows game.")
+    line = 62 * '-'
+    print(line)
+    print("|{0:^60}|".format("Hi there!") + "\n" + "|{0:^60}|".format("I've generated a random 4 different digit number for you.") + "\n" + "|{0:^60}|".format("Let's play a Bulls and Cows game. Good luck :)"))
+    print(line)
     name = input('Enter your name: ')
     # generate searching number
     gen_num = generate_4num()
-    # print('Generated number is:',gen_num)
+    print('Generated number is:',gen_num)
 
-    line = 66 * '-'
     result = [0,0]
     attempts = 0
 
@@ -103,7 +105,8 @@ while not play_game:
     with open('all_results.txt', mode = 'a') as ap_f:
         complete_results = ap_f.write(f'{name}, {attempts}, {r_time}\n')
 
-    print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
+    print(f"{score}, you've guessed number {look_num} in {attempts} guesses! \nGuessed time for number is {r_time}")
+    print(line)
 
     ############# result parts #############
     #print row in all_results.txt
