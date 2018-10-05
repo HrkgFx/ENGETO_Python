@@ -46,7 +46,7 @@ while not play_game:
     name = input('Enter your name: ')
     # generate searching number
     gen_num = generate_4num()
-    print('Generated number is:',gen_num)
+    # print('Generated number is:',gen_num)
 
     line = 66 * '-'
     result = [0,0]
@@ -81,6 +81,7 @@ while not play_game:
             print("You didn't enter number. Try it again.")
             print(line)
 
+    #score results
     if attempts == 1:
         score = 'You are GOD of all Cow and Bulls'
     elif attempts <= 10:
@@ -98,6 +99,7 @@ while not play_game:
     # transform to time hours:minutes:seconds
     r_time = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
 
+    # adding results to file
     with open('all_results.txt', mode = 'a') as ap_f:
         complete_results = ap_f.write(f'{name}, {attempts}, {r_time}\n')
 
@@ -107,7 +109,9 @@ while not play_game:
     #print row in all_results.txt
     def row_table (top_score):
         for index,value in enumerate(top_score):
-            print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
+            if index < 10:
+                print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
+            else: break
         print(t_line)
 
     with open('all_results.txt') as rs:
@@ -130,72 +134,47 @@ while not play_game:
 
     #counting length header
     len_header = len(("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0])))
-
     #horizontal table line
     t_line = len_header * '-'
 
+    #loop for menu after game
     again = False
-
     while not again:
+        #set of choices in menu
         choices = {'A', 'R', 'Q'}
         print("What do you want to do next?\n[A] - Play again, [R] - Show best results, [Q] - Quit Game")
         what_next = input('Enter letter for your choice: ')
         if what_next in choices:
+            #quit game
             if what_next == 'Q':
                 play_game = True
                 again = True
                 break
-
+            #print best results
             elif what_next == 'R':
-                #header table
+                #header table top by attempts
                 print()
                 print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
                 print(t_line)
                 print("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0]))
                 print(t_line)
                 row_table(top_score)
-
+                #header table top by time
                 print()
                 print('{0:^46}'.format('TOP TEN SCORE BY TIME'))
                 print(t_line)
                 print("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0]))
                 print(t_line)
                 row_table(top_time)
-
+            #play again
             elif what_next == 'A':
                 again = True
+                # clear screen for windows
                 os.system('cls')
+                # clear screen for linux
                 # os.system('clear')
             else:
                 print('You are enter unknow choice. Try again.')
                 continue
         else:
             print('Your enter is not correct. Try again.')
-
-
-
-
-
-
-# variable_name = expression1 if condition else expression2
-
-# results = list(map(int, results))
-
-# x = list(str(1235443545548484355435434455))
-# print(x)
-
-# import random
-#
-# def compare_numbers(number, user_guess):
-#     cowbull = [0,0] #cows, then bulls
-#     for i in range(len(number)):
-#         if number[i] == user_guess[i]:
-#             cowbull[1]+=1
-#         else:
-#             cowbull[0]+=1
-#     return cowbull
-#
-# if __name__=="__main__":
-#     playing = True #gotta play the game
-#     number = str(random.randint(0,9999)) #random 4 digit number
-#     guesses = 0

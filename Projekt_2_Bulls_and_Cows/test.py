@@ -34,11 +34,3 @@ for i in top_score:
     print(i)
 
 print(50*'*')
-
-
-    # if top_score == []:
-    #     top_score.extend[i]
-    # else:
-    #     for item in len(top_score):
-    #         if i[1] <= top_score[0][1]:
-    #         top_score.extend[i]
