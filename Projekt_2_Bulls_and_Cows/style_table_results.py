@@ -20,20 +20,26 @@ top_time = sorted(to_list[1:], key=itemgetter(2))
 
 #counting length header
 len_header = len(("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0])))
-print(len_header)
+
 #horizontal table line
 t_line = len_header * '-'
 
 #header table
-print('{0:^49}'.format('TOP TEN SCORE BY ATTEMPTS'))
+print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
 print(t_line)
 print("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0]))
 print(t_line)
 
 #print row in all_results.txt
-for index,value in enumerate(top_score):
-        if index < 10:
-            print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
-        else:
-            break
+def row_table (top_score):
+    for index,value in enumerate(top_score):
+            if index < 10:
+                print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
+            else:
+                break
+    print(t_line)
+
+row_table(top_score)
 print(t_line)
+print(t_line)
+row_table(top_time)

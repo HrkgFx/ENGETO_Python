@@ -8,6 +8,7 @@ import time
 import os.path
 from operator import itemgetter
 
+
 def generate_4num():
     '''
     generate random number (4 length) to the list with different numbers (0 - 9)
@@ -39,107 +40,135 @@ def compare_num(gen_num, user_num):
                 pass
     return bulls, cows
 
+play_game = True
+while play_game:
+    print("Hi there!\nI've generated a random 4 different digit number for you.\nLet's play a Bulls and Cows game.")
+    name = input('Enter your name: ')
+    # generate searching number
+    gen_num = generate_4num()
+    print('Generated number is:',gen_num)
 
-print("Hi there!\nI've generated a random 4 different digit number for you.\nLet's play a Bulls and Cows game.")
-name = input('Enter your name: ')
-# generate searching number
-gen_num = generate_4num()
-# print('Generated number is:',gen_num)
+    line = 66 * '-'
+    result = [0,0]
+    attempts = 0
 
-line = 66 * '-'
-result = [0,0]
-attempts = 0
+    # create file with header if file not exists
+    if not os.path.exists('all_results.txt'):
+        with open('all_results.txt', mode = 'a') as tab_header:
+            table = tab_header.write(f'Name, Attempts, Searching time\n')
 
-# create file with header if file not exists
-if not os.path.exists('all_results.txt'):
-    with open('all_results.txt', mode = 'a') as tab_header:
-        table = tab_header.write(f'Name, Attempts, Searching time\n')
-
-# start counting time
-start = time.time()
-while result[0] != 4:
-    #transfer string input to list with int - map(function, iterables)
-    try:
-        user_number = list(map(int, input('Enter a 4 digits number with different numbers: ')))
-        attempts += 1
-        if len(user_number) != len(gen_num):
+    # start counting time
+    start = time.time()
+    while result[0] != 4:
+        #transfer string input to list with int - map(function, iterables)
+        try:
+            user_number = list(map(int, input('Enter a 4 digits number with different numbers: ')))
+            attempts += 1
+            if len(user_number) != len(gen_num):
+                print(line)
+                print("Your entered number didn't has 4 digits. Try again.")
+                print(line)
+            elif len(user_number) == len(set(user_number)):
+                result = compare_num(gen_num, user_number)
+                print(f'BULLS {result[0]} and COWS {result[1]}')
+                print(line)
+            else:
+                print(line)
+                print('You are enter number which contain same digits. Try it again.')
+                print(line)
+        except ValueError:
             print(line)
-            print("Your entered number didn't has 4 digits. Try again.")
+            print("You didn't enter number. Try it again.")
             print(line)
-        elif len(user_number) == len(set(user_number)):
-            result = compare_num(gen_num, user_number)
-            print(f'BULLS {result[0]} and COWS {result[1]}')
-            print(line)
-        else:
-            print(line)
-            print('You are enter number which contain same digits. Try it again.')
-            print(line)
-    except ValueError:
-        print(line)
-        print("You didn't enter number. Try it again.")
-        print(line)
 
-if attempts = 1:
-    score = 'You are GOD of all Cow and Bulls'
-elif attempts <= 10:
-    score = 'Amazing'
-elif attempts <= 15:
-    score = 'Good'
-elif attempts <= 20:
-    score = 'Average'
-elif attempts > 20:
-    score = 'Not so good'
+    if attempts == 1:
+        score = 'You are GOD of all Cow and Bulls'
+    elif attempts <= 10:
+        score = 'Amazing'
+    elif attempts <= 15:
+        score = 'Good'
+    elif attempts <= 20:
+        score = 'Average'
+    elif attempts > 20:
+        score = 'Not so good'
 
-#merged list numbers to string numbers
-look_num = ''.join(str(i) for i in gen_num)
-elapsed_time = time.time() - start
-# transform to time hours:minutes:seconds
-r_time = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
+    #merged list numbers to string numbers
+    look_num = ''.join(str(i) for i in gen_num)
+    elapsed_time = time.time() - start
+    # transform to time hours:minutes:seconds
+    r_time = time.strftime("%H:%M:%S", time.gmtime(elapsed_time))
 
-with open('all_results.txt', mode = 'a') as ap_f:
-    complete_results = ap_f.write(f'{name}, {attempts}, {r_time}\n')
+    with open('all_results.txt', mode = 'a') as ap_f:
+        complete_results = ap_f.write(f'{name}, {attempts}, {r_time}\n')
 
-print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
+    print(f"{score}, you've guessed number {look_num} in {attempts} guesses! Guessed time for number is {r_time}")
 
+    again = True
+    while again:
+        print("What do you want to do next?\n[A] - Play again, [R] - Show best results, [Q] - Quit Game")
+        what_next = input('Enter letter for your choice: ')
 
-############# result parts #############
-with open('all_results.txt') as rs:
-    result_line = rs.readlines()
-
-# remove next line \n
-result_line = [line.strip('\n') for line in result_line]
-
-# convert to list from file - row is one item in list
-to_list = [item.split(', ') for item in result_line]
-
-# transform str to int on index 1 on attempts
-for x in to_list[1:]:
-    x[1] = int(x[1])
-
-#sort list by first index - attempts
-top_score = sorted(to_list[1:], key=itemgetter(1))
-#sort list by second index - time
-top_time = sorted(to_list[1:], key=itemgetter(2))
-
-#counting length header
-len_header = len(("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0])))
-
-#horizontal table line
-t_line = len_header * '-'
-
-#header table
-print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
-print(t_line)
-print("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0]))
-print(t_line)
-
-#print row in all_results.txt
-for index,value in enumerate(top_score):
-        if index < 10:
-            print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
-        else:
+        if what_next == 'Q' or 'q':
+            play_game = False
             break
-print(t_line)
+        elif what_next == 'R' or 'r':
+            ############# result parts #############
+            #print row in all_results.txt
+            def row_table (top_score):
+                for index,value in enumerate(top_score):
+                        if index < 10:
+                            print("|{0:^12}|{1:^12}|{2:^18}|".format(*top_score[index]))
+                        else:
+                            break
+                print(t_line)
+
+            with open('all_results.txt') as rs:
+                result_line = rs.readlines()
+
+            # remove next line \n
+            result_line = [line.strip('\n') for line in result_line]
+
+            # convert to list from file - row is one item in list
+            to_list = [item.split(', ') for item in result_line]
+
+            # transform str to int on index 1 on attempts
+            for x in to_list[1:]:
+                x[1] = int(x[1])
+
+            #sort list by first index - attempts
+            top_score = sorted(to_list[1:], key=itemgetter(1))
+            #sort list by second index - time
+            top_time = sorted(to_list[1:], key=itemgetter(2))
+
+            #counting length header
+            len_header = len(("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0])))
+
+            #horizontal table line
+            t_line = len_header * '-'
+
+            #header table
+            print()
+            print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
+            print(t_line)
+            print("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0]))
+            print(t_line)
+            row_table(top_score)
+
+            print()
+            print('{0:^46}'.format('TOP TEN SCORE BY TIME'))
+            print(t_line)
+            print("|{0:^12}|{1:^12}|{2:^18}|".format(*to_list[0]))
+            print(t_line)
+            row_table(top_time)
+
+        elif what_next == 'A' or 'a':
+            again = False
+            continue
+        else:
+            continue
+
+
+
 
 
 

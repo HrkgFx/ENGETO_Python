@@ -48,5 +48,5 @@
 #         else:
 #             print("Your guess isn't quite right, try again.")
 
-# print({'{0:^49}'.format('TOP TEN SCORE'))
+print('{0:^49}'.format('TOP TEN SCORE'))
 print('|{0:.4}|'.format('Hello'))
