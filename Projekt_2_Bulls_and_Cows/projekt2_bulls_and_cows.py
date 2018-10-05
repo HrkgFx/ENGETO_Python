@@ -49,7 +49,7 @@ while not play_game:
     name = input('Enter your name: ')
     # generate searching number
     gen_num = generate_4num()
-    # print('Generated number is:',gen_num)
+    print('Generated number is:',gen_num)
 
     result = [0,0]
     attempts = 0
@@ -144,17 +144,17 @@ while not play_game:
     again = False
     while not again:
         #set of choices in menu
-        choices = {'A', 'R', 'Q'}
+        choices = {'a','r','q','A', 'R', 'Q'}
         print("What do you want to do next?\n[A] - Play again, [R] - Show best results, [Q] - Quit Game")
-        what_next = input('Enter letter for your choice: ')
+        what_next = input('Enter letter for your choice: ').lower()
         if what_next in choices:
             #quit game
-            if what_next == 'Q':
+            if what_next == 'q':
                 play_game = True
                 again = True
                 break
             #print best results
-            elif what_next == 'R':
+            elif what_next == 'r':
                 #header table top by attempts
                 print()
                 print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
@@ -170,7 +170,7 @@ while not play_game:
                 print(t_line)
                 row_table(top_time)
             #play again
-            elif what_next == 'A':
+            elif what_next == 'a':
                 again = True
                 # clear screen for windows
                 os.system('cls')
