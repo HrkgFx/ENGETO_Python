@@ -13,6 +13,7 @@
 import math #ten soubor se spusti - takze pokud by byla nejaka akce v tom importu, tak projde cely math a zeptal by se me na tu akci
 from math import pi
 from math import floor as fl
+from test import A # prochazi se cely script
 # from math import pi, floor # naimportuje jen dane veci z tohoto modulu
 # from math import * # naimportuje uplne vsechno, ale nedoporucuje se, protoze si tim zaseru promenne
 # from math import pi as picko # prejmenujes si to jak potrebus
@@ -31,3 +32,4 @@ print(math.ceil(vysledek)) # zaokrouhleni nahoru
 
 x = 13//2 # flor division
 print(x)
+print(A)
