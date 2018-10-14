@@ -34,11 +34,18 @@
 #     print(i)
 #
 # print(50*'*')
-line_start = 62 * '-'
-print(line_start)
-print("|{0:^60}|".format("Hi there!") + "\n" + "|{0:^60}|".format("I've generated a random 4 different digit number for you.") + "\n" + "|{0:^60}|".format("Let's play a Bulls and Cows game. Good luck :)"))
-print(line_start)
-name = input('Enter your name: ')
+# line_start = 62 * '-'
+# print(line_start)
+# print("|{0:^60}|".format("Hi there!") + "\n" + "|{0:^60}|".format("I've generated a random 4 different digit number for you.") + "\n" + "|{0:^60}|".format("Let's play a Bulls and Cows game. Good luck :)"))
+# print(line_start)
+# name = input('Enter your name: ')
+#
+#
+# print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
 
 
-print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
+a = input('Zadej pismeno:')
+if a == 'a' or a == 'A':
+    print('Spust znovu.')
+else:
+    print('Else')

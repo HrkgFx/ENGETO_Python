@@ -5,4 +5,16 @@
 # číslo musí obsahovat buď 10 čísel (pro lidi, kteří se narodili po roce 1954), nebo 9 čísel (pro lidi, kteří se narodili do roku 1953),
 # číslo má 2 části - datum narození a kontrolní součet (CCCC) v tvaru YYMMDD/CCCC,
 # celé číslo musí být dělitelné číslem 11,
-# ženy mají v měsíci narození přidanou hodnotu 50. Příklad: 861107/2239 odpovídá rodnému číslu muže, který se narodil 7.11.1986. 025226/1306 odpovídá rodnému číslu ženy naroezené 26.02.2002.
+# ženy mají v měsíci narození přidanou hodnotu 50.
+# Příklad: 861107/2239 odpovídá rodnému číslu muže, který se narodil 7.11.1986.
+# 025226/1306 odpovídá rodnému číslu ženy naroezené 26.02.2002.
+
+# Day of the birth [YYYY-MM-DD]: <user input>
+# Sex [M/F]: <user input>
+# Generated birth number: YYMMDD/CCCC
+
+
+birth_day = []
+sex = []
+
+input()
