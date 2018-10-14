@@ -1,43 +1,25 @@
-# Please enter your time: 17 : 35
-# Converted to English: 5 : 35 PM
+Please enter your time: 17 : 35
+Converted to English: 5 : 35 PM
 
-# while True:
-#     time = input('Please enter your time: ')
-#     hours, mins = time.split(':')
-#     hours = int(hours)
-#
-#     if hours >= 12:
-#         eng_hours = hours - 12
-#         print('Converted time is: {}:{} PM'.format(eng_hours,mins))
-#     else:
-#         print('Converted time is: {}:{} AM'.format(hours,mins))
+while True:
+    time = input('Please enter your time: ')
+    hours, mins = time.split(':')
+    hours = int(hours)
 
-
-# time = input('Please enter your time: ')
-#
-# hours, mins = time.split(':')
-#
-# # variable_name = expression1 if condition else expression2
-# adjusted_h = hours if int(hours)==12 else str(int(hours) % 12)
-#
-# daytime = ['AM','PM'][int(hours)>=12]
-#
-# print('Converted to English: ' + adjusted_h + ':' + mins + ' ' + daytime)
+    if hours >= 12:
+        eng_hours = hours - 12
+        print('Converted time is: {}:{} PM'.format(eng_hours,mins))
+    else:
+        print('Converted time is: {}:{} AM'.format(hours,mins))
 
 
-# hours = 6
-#
-# daytime = ['AM','PM'][int(hours)>=12]
-# print(bool(dayt))
-# print(daytime)
+time = input('Please enter your time: ')
 
+hours, mins = time.split(':')
 
-my_str = 'Python'
-result = ''
+# variable_name = expression1 if condition else expression2
+adjusted_h = hours if int(hours)==12 else str(int(hours) % 12)
 
-if my_str.istitle():
-    result = 'Titlecased'
-else:
-    result = 'Not titlecased'
+daytime = ['AM','PM'][int(hours)>=12]
 
-print(result)
+print('Converted to English: ' + adjusted_h + ':' + mins + ' ' + daytime)
