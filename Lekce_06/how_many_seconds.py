@@ -15,8 +15,6 @@ minutes,sec  = divmod(remain_sec,60)
 eng_time = hours if hours == 12 else hours % 12
 am_pm = 'AM' if hours <= 12 else 'PM'
 
-
-
 eng_time864 = add_zero(eng_time)
 minutes = add_zero(minutes)
 sec = add_zero(sec)
