@@ -9,7 +9,7 @@ def max(sequence):
 
     return max_item
 
-
+# RAZENI LISTU
 listB = [24, 13, -15, -36, 8, 22, 48, 25, 46, -9]
 listB.sort(reverse=True) # listB gets modified
 
