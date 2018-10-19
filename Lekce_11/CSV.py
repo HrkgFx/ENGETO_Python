@@ -64,6 +64,8 @@ for radek in ctecka2:
         sloupce[i] = sloupce.get(i, []) + [polozka] #get vraci none a proto rikam co mi to ma vratit misto None
 nf.close()
 
+# print(sloupce)
+
 # 7,'',9,12
 # 10,11,'',13
 # 0, 1, 2, 3 - index sloupce
