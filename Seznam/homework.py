@@ -1,8 +1,12 @@
 import csv
 
-file = open ('articles.csv', encoding='utf8')
-reader = csv.reader(file, delimiter = ';')
+def loader(name_csv):
+    file = open (name_csv, encoding='utf8', newline='')
+    reader = csv.reader(file, delimiter = ';')
+    return reader
 
-for row in reader:
-    print(row)
-file.close()
+def reader (reader):
+    for row in reader:
+        print(row)
+
+reader(loader('articles.csv'))
