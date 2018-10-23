@@ -44,8 +44,13 @@
 # print('{0:^46}'.format('TOP TEN SCORE BY ATTEMPTS'))
 
 
-a = input('Zadej pismeno:')
-if a == 'a' or a == 'A':
-    print('Spust znovu.')
-else:
-    print('Else')
+# a = input('Zadej pismeno:')
+# if a == 'a' or a == 'A':
+#     print('Spust znovu.')
+# else:
+#     print('Else')
+
+mylist = [1,3,4,5,6,78,9]
+
+for x in mylist[:3]:
+    print(x)
