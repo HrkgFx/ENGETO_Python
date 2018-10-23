@@ -12,10 +12,19 @@
 
 
 import requests
+from pprint import pprint as pp
 
 # vytvori requests
 getr = requests.get('https://httpbin.org')
 print(getr.status_code)
-
+print(50*'-')
 #co jsem dostal
-print(getr.text)
+pp(getr.text)
+
+
+getr = requests.post('https://httpbin.org', data = {1:2})
+
+print(getr.status_code)
+print(50*'-')
+#co jsem dostal
+pp(getr.text)
