@@ -47,3 +47,9 @@ print(list(filter(sude, [2,3,4,5])))
 
 l1 = list(filter(sude, range(10)))
 print(l1)
+
+
+def fn(x):
+    if x == 1:
+        return x
+    return x*fn(x-1)
