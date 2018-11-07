@@ -140,3 +140,16 @@
 # Hello Frank! Name Frank is my prefered name.
 
 # LISTS
+1/
+# Create new lists
+# Assign an empty list to the variable candidates
+# Print the content of candidates to the terminal introducing it with the string: Candidates at the beginning:
+# Create a list containing strings: 'Frank', 'Amy', 'John', 'Kate' and assign this list to the variable employees
+# Print the content of employees to the terminal introducing it with the string: Employees at the beginning:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+
+2/
