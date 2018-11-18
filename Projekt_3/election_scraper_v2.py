@@ -11,19 +11,13 @@ def load_page(url):
     content = requests.get(url).content
     return BeautifulSoup(content, "lxml")
 
-def menu():
-    template = "Vyber {} pro {}"
-    for key, value in dict_reg.items():
-        for key2, value2 in short_reg.items():
-            if value == value2:
-                print(template.format(key2, key))
+
 
 
 def main():
     base_url = "https://volby.cz/pls/ps2017nss/ps3?xjazyk=CZ"
     region_url = 'https://volby.cz/pls/ps2017nss/'
-    content = requests.get(base_url).content
-    soup = BeautifulSoup(content, "lxml")
+    soup = load_page(base_url)
 
     regions = soup.find_all("h3", "kraj")
     dict_reg = {}
@@ -52,12 +46,15 @@ def main():
                  'J' : dict_reg.get('Kraj Vysočina'),
                  }
 
-
+    def menu():
+        template = "Vyber {} pro {}"
+        for key, value in dict_reg.items():
+            for key2, value2 in short_reg.items():
+                if value == value2:
+                    print(template.format(key2, key))
 
     menu()
-    #
     reg_choice = input('Vyber kraj: ')
-
 
 
     if reg_choice in short_reg.keys():
@@ -67,20 +64,8 @@ def main():
     else:
         print('Vybral sis špatně:')
 
-    #print(region_BS)
 
 
-
-    # pp(dict_reg.keys())
-    # pp(short_reg.items())
-    print(len(dict_reg))
-    print(dict_reg.keys())
-
-    def menu():
-        print(len(dict_reg))
-        print(dict_reg.keys())
-
-    # print(short_reg.get('PRA'))
 
 if __name__ == '__main__':
     main()
