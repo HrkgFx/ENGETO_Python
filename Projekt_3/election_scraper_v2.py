@@ -5,12 +5,12 @@ import requests
 from bs4 import BeautifulSoup
 
 from pprint import pprint as pp
+from unidecode import unidecode
 
 # prevadi stranku do BS4
 def load_page(url):
     content = requests.get(url).content
     return BeautifulSoup(content, "lxml")
-
 
 
 
@@ -59,12 +59,21 @@ def main():
 
     if reg_choice in short_reg.keys():
         url = short_reg.get(reg_choice)
-        print(url)
-        region_BS = load_page(url)
+        # print(url)
+        soup_region = load_page(url)
     else:
         print('Vybral sis špatně:')
 
 
+
+#vsechny tr na strance + obsah td
+    for tr in soup_region.find_all('tr'):
+        values = [unidecode(td.text) for td in tr.find_all('td')]
+        # print(values)
+    data = []
+    for tr in soup_region.find_all('tr'):
+        values = [data.append(unidecode(td.text)) for td in tr.find_all('td', {'headers': 't1sa1'}) if td !=[]]
+    print(data)
 
 
 if __name__ == '__main__':
