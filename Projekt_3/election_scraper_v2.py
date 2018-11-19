@@ -66,14 +66,58 @@ def main():
 
 
 
-#vsechny tr na strance + obsah td
-    for tr in soup_region.find_all('tr'):
-        values = [unidecode(td.text) for td in tr.find_all('td')]
-        # print(values)
+# #vsechny tr na strance + obsah td
+#     for tr in soup_region.find_all('tr'):
+#         values = [unidecode(td.text) for td in tr.find_all('td')]
+#         # print(values)
+# # ulozeni dat do listu bez prazdnych listu
+#     data = []
+#     for tr in soup_region.find_all('tr'):
+#         # values = [data.append(unidecode(td.text)) for td in tr.find_all('td', {'headers': 't1sa1'}) if td !=[]]
+#         values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
+#     print(data)
+
+    #text hlavicka souhrnu dat krajske tabulky
     data = []
-    for tr in soup_region.find_all('tr'):
-        values = [data.append(unidecode(td.text)) for td in tr.find_all('td', {'headers': 't1sa1'}) if td !=[]]
+    header_all = soup_region.find('table',{'id': 'ps311_t1'})
+    for tr in header_all.find_all('tr'):
+        values = [data.append(unidecode(th.text)) for th in tr.find_all('th') if th !=[]]
     print(data)
+
+
+    #data souhrnu dat krajske tabulky
+    data = []
+    header_all = soup_region.find('table',{'id': 'ps311_t1'})
+    for tr in header_all.find_all('tr'):
+        # values = [data.append(unidecode(td.text)) for td in tr.find_all('td', {'headers': 't1sa1'}) if td !=[]]
+        values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
+    print(data)
+
+
+    results = soup_region.find('div',{'class': 't2_470'})
+    data = []
+    for th in results.find_all('th'):
+        header = data.append(th.text.strip())
+    print(data)
+
+    data = []
+    for tr in results.find_all('tr'):
+        values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
+    pp(data)
+
+
+    # data = []
+    # header_all = soup_region.find('table',{'id': 'ps311_t1'})
+    # for tr in header_all.find_all('tr'):
+    #     for th in tr.find_all('th'):
+    #         # th_c = th.replace("<br>", " ")
+    #         print(type(th))
+    #         # print(th_c)
+    #         #
+    #         # if th !=[]:
+    #         #     data.append(unidecode(th_c.text))
+    # print(data)
+
 
 
 if __name__ == '__main__':
