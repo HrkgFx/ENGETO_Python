@@ -91,16 +91,19 @@ def main():
     for br in summary_table("br"):
         br.replace_with(" ")
 
+    # SUMMARY_TABLE
     # words in th header
     header = []
     for th in summary_table.find_all('th'):
         header.append(th.text.strip())
     numbers = []
+
     # numbers in td header
     for td in summary_table.find_all('td'):
         numbers.append(unidecode(td.text.strip()))
-    print(header,numbers)
+    # print(header,numbers)
 
+    # WRITING TO CSV
     with codecs.open("output.csv", "w", "utf-8") as file:
         file_writer = csv.writer(file)
         file_writer.writerow([header[0] + ' ' + header[7], header[1], header[2], header[3], header[4], header[5], header[6]])
@@ -109,6 +112,16 @@ def main():
         #     data = extract_product(product)
         #     file_writer.writerow(data)
 
+    # RESULTS_TABLE
+    reg_results_div = soup_region.find_all('div', {'class' : 't2_470'})
+    print(reg_results_div)
+    reg_results_tab = reg_results_div.find('table')
+    print(reg_results_tab)
+
+    # header = []
+    # for th in reg_results_div.find_all('th'):
+    #     # header.append(th.text.strip())
+    #     print(th)
 
 
 # <th colspan="3" id="sa1">Okrsky</th>
