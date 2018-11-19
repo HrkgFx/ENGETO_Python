@@ -86,6 +86,9 @@ def main():
     #     values = [unidecode(td.text) for td in tr.find_all('td') if td !=[]]
     #     print(head, values)
 
+    reg = soup_region.find('h3').text.strip()
+    print(reg)
+
     summary_table = soup_region.find('table', {'id' : 'ps311_t1'})
     # replace br tags for " "
     for br in summary_table("br"):
@@ -103,91 +106,41 @@ def main():
         numbers.append(unidecode(td.text.strip()))
     # print(header,numbers)
 
-    # WRITING TO CSV
-    with codecs.open("output.csv", "w", "utf-8") as file:
-        file_writer = csv.writer(file)
-        file_writer.writerow([header[0] + ' ' + header[7], header[1], header[2], header[3], header[4], header[5], header[6]])
-        file_writer.writerow([numbers[0], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8]])
-        # for product in products:
-        #     data = extract_product(product)
-        #     file_writer.writerow(data)
+
+
 
     # RESULTS_TABLE
-
     table = soup_region.find_all('div', {'class' : 't2_470'})
-
+    # HEADER TH
     header_results = []
     for th in table[0].find_all('th'):
         header_results.append(th.text.strip())
     print(header_results)
 
-    political_party = []
-    for tr in table[0].find_all('tr'):
-        party = []
-        for td in tr.find_all('td'):
-            party.append(unidecode(td.text.strip()))
-        if party != []:
-            political_party.append(party)
-    # pp(political_party)
+    # DATA RESULTS
+    def load_result(index_table):
+        political_party = []
+        for tr in table[index_table].find_all('tr'):
+            party = []
+            for td in tr.find_all('td'):
+                party.append(unidecode(td.text.strip()))
+            if party != []:
+                political_party.append(party)
+        return political_party
 
-    for tr in table[1].find_all('tr'):
-        party = []
-        for td in tr.find_all('td'):
-            party.append(unidecode(td.text.strip()))
-        if party != []:
-            political_party.append(party)
-    pp(political_party)
+    complete_table = load_result(0) + load_result(1)[:len(load_result(1))-1]
+    pp(complete_table)
 
-    # political_party = []
-    # for td in table[0].find_all('td'):
-    #     political_party.append(unidecode(td.text.strip()))
-    # print(political_party)
-
-
-    # head_res=[]
-    # reg_results_th =[head_res.append(th.text.strip()) for th in soup_region.find_all('th', {'class' : 't1sa1 t1sa2 t1sb1 t1sb2 t1sb3 t1sb4'})]
-    # print(head_res)
-
-    # for tr in soup_region.find_all('tr'):
-    #     for th in tr.find_all('th'):
-    #         print(th)
-
-    # reg_results_div = soup_region.find('table', {'class' : 't2_470'})
-    # # tables = reg_results_div.find_all('table')
-    # # print(tables)
-    # print(reg_results_div)
-
-
-    # header = []
-    # for th in reg_results_div.find_all('th'):
-    #     # header.append(th.text.strip())
-    #     print(th)
-
-
-# <th colspan="3" id="sa1">Okrsky</th>
-# <th id="sb1">celkem</th>
-# <td class="cislo" headers="sa1 sb1">1&nbsp;109</td>
-#
-# <th rowspan="2" id="sa2">Voliči<br>v seznamu</th>
-# <td class="cislo" headers="sa2">916&nbsp;940</td>
-#
-# <th rowspan="2" id="sa3">Vydané<br>obálky</th>
-# <td class="cislo" headers="sa3">615&nbsp;519</td>
-#
-# <th rowspan="2" id="sa4">Volební<br>účast v %</th>
-# <td class="cislo" headers="sa4">67,13</td>
-#
-# <th rowspan="2" id="sa5">Odevzdané<br>obálky</th>
-# <td class="cislo" headers="sa5">614&nbsp;958</td>
-#
-# <th rowspan="2" id="sa6">Platné<br>hlasy</th>
-# <td class="cislo" headers="sa6">611&nbsp;450</td>
-#
-# <th rowspan="2" id="sa7">% platných<br>hlasů</th>
-# <td class="cislo" headers="sa7">99,43</td>
-
-
-
+    # WRITING TO CSV
+    with codecs.open("output.csv", "w", "utf-8") as file:
+        file_writer = csv.writer(file, delimiter=',')
+        file_writer.writerow([reg])
+        file_writer.writerow([header[0] + ' ' + header[7], header[1], header[2], header[3], header[4], header[5], header[6]])
+        file_writer.writerow([numbers[0], numbers[3], numbers[4], numbers[5], numbers[6], numbers[7], numbers[8]])
+        file_writer.writerow([])
+        file_writer.writerow([header_results[0] + ' ' + header_results[3],header_results[0] + ' ' + header_results[4],header_results[1] + ' ' + header_results[5], header_results[1] + ' ' + header_results[6]])
+        for party in complete_table:
+            file_writer.writerow([party[0], party[1], party[2], party[3]])
 
 if __name__ == '__main__':
     main()
