@@ -96,9 +96,9 @@ def main():
     header = []
     for th in summary_table.find_all('th'):
         header.append(th.text.strip())
-    numbers = []
 
     # numbers in td header
+    numbers = []
     for td in summary_table.find_all('td'):
         numbers.append(unidecode(td.text.strip()))
     # print(header,numbers)
@@ -113,10 +113,50 @@ def main():
         #     file_writer.writerow(data)
 
     # RESULTS_TABLE
-    reg_results_div = soup_region.find_all('div', {'class' : 't2_470'})
-    print(reg_results_div)
-    reg_results_tab = reg_results_div.find('table')
-    print(reg_results_tab)
+
+    table = soup_region.find_all('div', {'class' : 't2_470'})
+
+    header_results = []
+    for th in table[0].find_all('th'):
+        header_results.append(th.text.strip())
+    print(header_results)
+
+    political_party = []
+    for tr in table[0].find_all('tr'):
+        party = []
+        for td in tr.find_all('td'):
+            party.append(unidecode(td.text.strip()))
+        if party != []:
+            political_party.append(party)
+    # pp(political_party)
+
+    for tr in table[1].find_all('tr'):
+        party = []
+        for td in tr.find_all('td'):
+            party.append(unidecode(td.text.strip()))
+        if party != []:
+            political_party.append(party)
+    pp(political_party)
+
+    # political_party = []
+    # for td in table[0].find_all('td'):
+    #     political_party.append(unidecode(td.text.strip()))
+    # print(political_party)
+
+
+    # head_res=[]
+    # reg_results_th =[head_res.append(th.text.strip()) for th in soup_region.find_all('th', {'class' : 't1sa1 t1sa2 t1sb1 t1sb2 t1sb3 t1sb4'})]
+    # print(head_res)
+
+    # for tr in soup_region.find_all('tr'):
+    #     for th in tr.find_all('th'):
+    #         print(th)
+
+    # reg_results_div = soup_region.find('table', {'class' : 't2_470'})
+    # # tables = reg_results_div.find_all('table')
+    # # print(tables)
+    # print(reg_results_div)
+
 
     # header = []
     # for th in reg_results_div.find_all('th'):
