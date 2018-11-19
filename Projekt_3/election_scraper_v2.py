@@ -81,29 +81,30 @@ def main():
     data = []
     header_all = soup_region.find('table',{'id': 'ps311_t1'})
     for tr in header_all.find_all('tr'):
-        values = [data.append(unidecode(th.text)) for th in tr.find_all('th') if th !=[]]
-    print(data)
+        head = [unidecode(th.text) for th in tr.find_all('th') if th !=[]]
+        values = [unidecode(td.text) for td in tr.find_all('td') if td !=[]]
+        print(head, values)
 
 
-    #data souhrnu dat krajske tabulky
-    data = []
-    header_all = soup_region.find('table',{'id': 'ps311_t1'})
-    for tr in header_all.find_all('tr'):
-        # values = [data.append(unidecode(td.text)) for td in tr.find_all('td', {'headers': 't1sa1'}) if td !=[]]
-        values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
-    print(data)
-
-
-    results = soup_region.find('div',{'class': 't2_470'})
-    data = []
-    for th in results.find_all('th'):
-        header = data.append(th.text.strip())
-    print(data)
-
-    data = []
-    for tr in results.find_all('tr'):
-        values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
-    pp(data)
+    # #data souhrnu dat krajske tabulky
+    # data = []
+    # header_all = soup_region.find('table',{'id': 'ps311_t1'})
+    # for tr in header_all.find_all('tr'):
+    #     # values = [data.append(unidecode(td.text)) for td in tr.find_all('td', {'headers': 't1sa1'}) if td !=[]]
+    #     values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
+    # print(data)
+    #
+    #
+    # results = soup_region.find('div',{'class': 't2_470'})
+    # data = []
+    # for th in results.find_all('th'):
+    #     header = data.append(th.text.strip())
+    # print(data)
+    #
+    # data = []
+    # for tr in results.find_all('tr'):
+    #     values = [data.append(unidecode(td.text)) for td in tr.find_all('td') if td !=[]]
+    # pp(data)
 
 
     # data = []
