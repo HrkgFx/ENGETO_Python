@@ -153,3 +153,169 @@
 # Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
 
 2/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# add new names 'Bob' and 'Ann' into the list candidates
+# print the content of the variable candidates introduced by the string: Added new names to candidates:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+
+3/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# insert name 'Bob' stored in the variable candidates into the employees list at the index 1
+# print the content of the variable employees introduced by the string: Added new names to employees:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', Amy', 'John', 'Kate']
+
+4/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# remove the string 'Bob' from the list candidates
+# print the content of the variable candidates introduced by the string: Removed name from candidates:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', Amy', 'John', 'Kate']
+# Removed Bob from candidates:  ['Ann']
+
+5/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# repeat the name 'Ann' 3 times inside the list candidates
+# print the content of the variable candidates introduced by the string: Repeated name Ann in candidates:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+
+6/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# merge the list candidates into the list employees
+# print the content of the variable employees introduced by the string: Merged candidates with employees:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+# Merged candidates with employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate', 'Ann', 'Ann', 'Ann']
+
+7/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# print out the name at the index 2 introduced by the string: At index 2 we have:
+# print out the name at the last index introduced by the string: At index <index_num> we have:
+# the placeholder <index_num> should be replaced by the index number of the last position in the list employees
+#
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+# Merged candidates with employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate', 'Ann', 'Ann', 'Ann']
+# At index 2 we have: Amy
+# At index 7 we have:  Ann
+
+8/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# print out the names at the indices 2 to 5 introduced by the string: At indices 2 to 5 we have:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+# Merged candidates with employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate', 'Ann', 'Ann', 'Ann']
+# At index 2 we have: Amy
+# At index 7 we have:  Ann
+# At indices 2 to 5 we have:  ['Amy', 'John', 'Kate', 'Ann']
+
+9/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# print out every third string in employees introduced by the string: Every third member:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+# Merged candidates with employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate', 'Ann', 'Ann', 'Ann']
+# At index 2 we have: Amy
+# At index 7 we have:  Ann
+# At indices 2 to 5 we have:  ['Amy', 'John', 'Kate', 'Ann']
+# Every third member: ['Frank', 'John', 'Ann']
+
+10/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# print the index, at which the string 'John' encounters itself in employees: John is at index:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+# Merged candidates with employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate', 'Ann', 'Ann', 'Ann']
+# At index 2 we have: Amy
+# At index 7 we have:  Ann
+# At indices 2 to 5 we have:  ['Amy', 'John', 'Kate', 'Ann']
+# Every third member: ['Frank', 'John', 'Ann']
+# John is at index: 3
+
+11/
+# Please, continue working with the file employees.py. Now, write a code that will perform the following actions:
+#
+# print how many times name 'Ann' can be found inemployees: The number of occurences of Ann:
+# Example of running the script:
+#
+# /Users/PythonBeginner/Lesson1$ python employees.py
+# Candidates at the beginning: []
+# Employees at the beginning: ['Frank', 'Amy', 'John', 'Kate']
+# Added new names to candidates: ['Bob', 'Ann']
+# Added new names to employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate']
+# Removed name from candidates:  ['Ann']
+# Repeated name Ann in candidates: ['Ann', 'Ann', 'Ann']
+# Merged candidates with employees: ['Frank', 'Bob', 'Amy', 'John', 'Kate', 'Ann', 'Ann', 'Ann']
+# At index 2 we have: Amy
+# At index 7 we have:  Ann
+# At indices 2 to 5 we have:  ['Amy', 'John', 'Kate', 'Ann']
+# Every third member: ['Frank', 'John', 'Ann']
+# John is at index: 3
+# The number of occurences of Ann: 3
